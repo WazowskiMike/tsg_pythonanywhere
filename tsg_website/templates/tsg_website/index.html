@@ -1,0 +1,231 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'tsg_website/css/style.css' %}">
+  <link rel="shortcut icon" type="image/x-icon" href="../static/tsg_website/images/favicon.ico">
+  <title>TSG - Trans Service Group</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="navbar">
+      <div class="container d-flex align-items-center">
+        <ul class="text testing">
+          <li class="spaced">T</li>
+          <li class="ghost">r</li>
+          <li class="ghost">a</li>
+          <li class="ghost">n</li>
+          <li class="ghost">s</li>
+          
+          <li class="spaced">S</li>
+          <li class="ghost">e</li>
+          <li class="ghost">r</li>
+          <li class="ghost">v</li>
+          <li class="ghost">i</li>
+          <li class="ghost">c</li>
+          <li class="ghost">e</li>
+          
+          <li class="spaced">G</li>
+          <li class="ghost">r</li>
+          <li class="ghost">o</li>
+          <li class="ghost">u</li>
+          <li class="ghost">p</li>
+        </ul>
+        
+        <button
+          class="navbar-toggler shadow-none border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="sidebar offcanvas offcanvas-end offcanvas-test"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white " id="offcanvasNavbarLabel">Navigation</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white shadow-none"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+              id="close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3">
+              <li class="nav-item mx-2">
+                <a class="nav-link active nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active nav-link" aria-current="page" href="#about">About</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active nav-link" aria-current="page" href="#auto-services">Services</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active nav-link" aria-current="page" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+          
+<main>
+    <section>
+      <div class="container slogan">
+        <div class="row">
+          <div class="col test">
+            <div class="call-us text-center text-lg-start">
+              <p class="text-light fw-semibold car-repair-text mb-0">Your Journey,</p>
+              <p class="text-uppercase rely mt-0 mb-1">Our Passion</p>
+              <p class="text-light fs-5 mb-3 mt-1">
+                TSG has easy, affordable and reliable auto paint and collision repair services.
+              </p>
+              <a href="#contact"><div class="button text-center" >CONTACT US</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container about-container" id="about">
+        <div class="row">
+          <div class="col text-center about-text">
+            <p class="text-light fw-semibold about link-test">About Us</p>
+            <p class="text-light text-center text-lg-start fs-5 lh-lg ">
+              <span class="mb-5">
+                We are specialists in auto collision repair and body work services. Our technicians repair scratches, scuffs, cracks, dents, paint chips, peeled paint and others.<br><br>
+              </span>
+              <span class="mb-5">
+                From minor dings to major collisions, trust Trans Service Group for meticulous and efficient repairs.
+                <br><br>
+              </span>
+              <span class="mb-5">
+                Our goal is to bring you peace of mind and make sure
+                that our work exceeds the highest quality standards.
+                <br><br>
+              </span>
+              <p class="text-light fw-semibold ml-5 mr-5 mb-1 fs-5 text-center about-us-slogan">
+                WHETHER IT&#39;S AUTO PAINT OR COLLISION REPAIR, TRANS SERVICE GROUP HAS
+                EASY, AFFORDABLE AND RELIABLE AUTO PAINT AND COLLISION REPAIR SERVICES
+                THAT <span class="text-danger">CAN TURN THE CAR YOU DRIVE BACK INTO THE CAR YOU LOVE</span>.
+              </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container" id="auto-services">
+        <div class="row">
+          <div class="col text-center about-text">
+            <p class="text-light fw-semibold about link-test">Servises</p>
+              <h3 class="text-light text-start sercices-h lh-lg mb-0">What auto body shops do</h3>
+              <p class="text-light text-start fs-5 lh-lg">
+                <span class="mb-5">
+                  An auto body shop repairs damage to the exterior and non-moving parts.<br>
+                </span>
+                <span class="mb-5">
+                  • Restores vehicles after minor or major collisions<br>
+                  • Repairs dents in the sheet metal<br>
+                  • Restores paint and repaints to match factory colors<br>
+                  • Replaces bumpers, damaged body panels, and other components that are not part of the engine<br>
+                  • Repairs or replaces glass
+                </span>
+                <br><br>
+                </span>
+              </p>
+              <h3 class="text-light text-start sercices-h lh-lg mb-0">What auto repair shops do</h3>
+              <p class="text-light text-start fs-5 lh-lg">
+                <span class="mb-5">
+                  An auto repair shop performs regular maintenance and repairs moving parts.<br>
+                </span>
+                <span class="mb-5">
+                  • Replaces brakes<br>
+                  • Replaces other parts that wear out during normal driving<br>
+                  • Performs oil changes<br>
+                  • Repairs engine components that wear out or become damaged during use<br>
+                  • Repairs other moving components of the vehicle
+                </span>
+                <br><br>
+                </span>
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container contact-info" id="contact">
+        <div class="row contacts">
+          <div class="col text-center text-light">
+            <h1>Contacts</h1>
+          </div>
+        </div>
+        <div class="row text-center">
+     
+          <div class="col-lg-4 d-flex align-items-center justify-content-center info">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill="#fff" fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+            </svg>
+            <a href="#copy-phone"><p class="text-light fs-5 block company-phone" onclick="copyPhoneToClipboard()">+1(786)8590303</p></a>
+          </div>
+          <div class="col-lg-4 d-flex align-items-center justify-content-center info">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+              <path fill="#fff" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+            </svg>
+            <a href="#copy-email"><p class="text-light fs-5 block company-email" onclick="copyEmailToClipboard()">tsg.mia.us@gmail.com</p></a>
+          </div>
+          <div class="col-lg-4 d-flex align-items-center justify-content-center info">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+              <path fill="#fff" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+            </svg>
+            <p class="text-light fs-5 block">160 SW 5th St, Pompano Beach, FL 33060</p>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-12">
+            <div class="copy-email-container">
+              Email has been copied
+            </div>
+            <div class="copy-phone-container">
+              Phone number has been copied
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+</main>
+
+  <footer>
+    <div class="container footer-info">
+      <footer class="py-3 my-4">
+        <p class="text-center text-dark-emphasis">© 2024 Trans Service Group, Inc</p>
+      </footer>
+    </div>
+  </footer>
+  <script type="text/javascript" src="{% static "tsg_website/js/copy_phone.js" %}"></script>
+  <script type="text/javascript" src="{% static "tsg_website/js/copy_email.js" %}"></script>
+  <script type="text/javascript" src="{% static "tsg_website/js/tsg_ani.js" %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static "tsg_website/js/hidemenu.js" %}">
+    
+  </script>
+</body>
+</html>

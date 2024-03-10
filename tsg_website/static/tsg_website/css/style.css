@@ -1,0 +1,227 @@
+:root {
+  --color1: #ca0e0e;
+  --color2: #5f0707;
+}
+
+@font-face {
+  font-family: "Mecaros";
+  src: url("../fonts/mecaros.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/mecaros.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+body {
+  background: url(../images/car_repair_bckgrnd.jpg) rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  height: 100px;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+.offcanvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offcanvas-title {
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 auto;
+}
+
+.btn-close {
+  margin-left: 0;
+}
+
+.call-us {
+  margin-top: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  backdrop-filter: blur(5px);
+}
+
+@media screen and (max-width: 991px) {
+  .test {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background-color: var(--color2);
+  }
+}
+
+@media (hover: none) {
+  .button:active {
+    background-color: var(--color2);
+  }
+}
+
+a{
+  text-decoration: none;
+}
+
+a .company-email:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+a .company-phone:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.copy-email-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 5px;
+  display: none;
+}
+
+.copy-phone-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 5px;
+  display: none;
+}
+
+p {
+  color: aliceblue;
+}
+
+.rely {
+  font-weight: 800;
+  font-size: 4rem;
+  color: var(--color1);
+}
+
+.car-repair-text {
+  font-size: 1.5rem;
+}
+
+.button {
+  background-color: var(--color1);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  padding-right: 3px;
+  padding-left: 3px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: opacity 0.15s;
+}
+
+.text {
+  cursor: pointer;
+  padding: auto;
+  list-style: none;
+  border-bottom: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+}
+
+.text li {
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: #fff;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  max-width: 2em;
+}
+.text.hidden li.spaced {
+  padding-left: 0;
+  margin-right: 0;
+}
+.text li.spaced {
+  padding-left: 0.5em;
+}
+
+.text.hidden li.ghost {
+  opacity: 0;
+  max-width: 0;
+}
+
+.offcanvas-test {
+  width: 100% !important; /* Set width to  100% */
+}
+
+.about {
+  font-size: 40px;
+}
+
+.about-text {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 200px;
+}
+
+.about-container {
+  margin-top: 450px;
+}
+
+.about-us-slogan {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.block{
+  margin-bottom: 0px;
+  margin-left: 8px;
+}
+
+.contacts{
+  margin-bottom: 20px;
+}
+
+.info{
+  margin-bottom: 10px;
+}
+
+.contact-info{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.footer-info{
+  margin-top: 50px;
+}
+
+.company-email :hover{
+  text-decoration: underline;
+}
