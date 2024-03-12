@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --color1: #ca0e0e;
   --color2: #5f0707;
@@ -143,7 +144,7 @@ p {
 .rely {
   font-weight: 800;
   font-size: 4rem;
-  color: var(--color1);
+  color: #ca0e0e;
 }
 
 .car-repair-text {
@@ -151,7 +152,7 @@ p {
 }
 
 .button {
-  background-color: var(--color1);
+  background-color: #ca0e0e;
   color: white;
   font-weight: bold;
   font-size: 20px;
