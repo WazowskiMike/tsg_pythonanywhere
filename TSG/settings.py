@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+vb_-++ln(gs*mu_u3ycbuith3$@=^()@hp1bo+($e871we9h!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.tsgflorida.com']
+ALLOWED_HOSTS = ['www.tsgflorida.com', '127.0.0.1']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tsg_website.middleware.SetExpiresHeaderMiddleware',
 ]
 
 ROOT_URLCONF = 'TSG.urls'
