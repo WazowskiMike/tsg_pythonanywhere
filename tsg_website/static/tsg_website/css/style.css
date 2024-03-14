@@ -43,6 +43,8 @@ body {
 @media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .fixed-background {
     background-attachment: scroll !important;
+    width:  812px;
+    height:  1600px;
   }
 }
 
