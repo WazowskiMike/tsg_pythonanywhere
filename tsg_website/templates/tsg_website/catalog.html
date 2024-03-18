@@ -28,7 +28,7 @@
               <li class="ghost">a</li>
               <li class="ghost">n</li>
               <li class="ghost">s</li>
-    
+
               <li class="spaced">S</li>
               <li class="ghost">e</li>
               <li class="ghost">r</li>
@@ -36,14 +36,14 @@
               <li class="ghost">i</li>
               <li class="ghost">c</li>
               <li class="ghost">e</li>
-    
+
               <li class="spaced">G</li>
               <li class="ghost">r</li>
               <li class="ghost">o</li>
               <li class="ghost">u</li>
               <li class="ghost">p</li>
             </ul>
-    
+
             <button
               class="navbar-toggler shadow-none border-0"
               type="button"
@@ -108,14 +108,25 @@
                         <div class="divider"></div> <!-- Визуальный разделитель -->
                         <div class="flex-grow-1">
                             <h5>Price</h5>
+                            {% if car.is_sold %}
+                            <h4>SOLD</h4>
+                            {% else %}
                             <h4>{{ car.formatted_price }} $</h4>
+                            {% endif %}
                         </div>
+                        {% if not car.is_sold %}
                         <a href="/#contact" class="order-button">
                             <div class="button text-center">ORDER</div>
                         </a>
+                        {% endif %}
                     </div>
                     <div class="col-12 col-md-6 car-col">
                         <div id="carouselExampleControls{{ car.id }}" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            {% if car.is_sold %}
+                                <div class="sold-badge">
+                                    <h1 class="is-sold">SOLD</h1>
+                                </div>
+                            {% endif %}
                             <div class="carousel-inner">
                                 {% for photo in car.photos.all %}
                                     {% if forloop.first %}
@@ -137,7 +148,7 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
-                        </div>                                     
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,7 +157,7 @@
             {% endif %}
             {% endfor %}
         </div>
-        
+
     </main>
 
     <footer>
@@ -175,6 +186,6 @@
             }
           });
         });
-    </script>      
+    </script>
 </body>
 </html>
