@@ -6,9 +6,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'tsg_website/css/catalog.css' %}">
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/tsg_website/images/favicon.ico">
+    <title>TSG - Catalog</title>
 </head>
 <body>
-    <h1>About</h1>
+    <div class="fixed-background"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="navbar">
+          <div class="container d-flex align-items-center">
+            <ul class="text testing">
+              <li class="spaced">T</li>
+              <li class="ghost">r</li>
+              <li class="ghost">a</li>
+              <li class="ghost">n</li>
+              <li class="ghost">s</li>
+    
+              <li class="spaced">S</li>
+              <li class="ghost">e</li>
+              <li class="ghost">r</li>
+              <li class="ghost">v</li>
+              <li class="ghost">i</li>
+              <li class="ghost">c</li>
+              <li class="ghost">e</li>
+    
+              <li class="spaced">G</li>
+              <li class="ghost">r</li>
+              <li class="ghost">o</li>
+              <li class="ghost">u</li>
+              <li class="ghost">p</li>
+            </ul>
+    
+            <button
+              class="navbar-toggler shadow-none border-0"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="sidebar offcanvas offcanvas-end offcanvas-test"
+              tabindex="-1"
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+            >
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white " id="offcanvasNavbarLabel">Navigation</h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white shadow-none"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                  id="close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3">
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#about">About</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#auto-services">Services</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container car-container">
+            {% for car in cars %}
+            <div class="car">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex flex-column car-col">
+                        <div class="flex-grow-1">
+                            <h5>Model</h5>
+                            <h4>{{car.name}}</h4>
+                        </div>
+                        <div class="divider"></div> <!-- Визуальный разделитель -->
+                        <div class="flex-grow-1">
+                            <h5>Description</h5>
+                            <span>{{car.description}}</span>
+                        </div>
+                        <div class="divider"></div> <!-- Визуальный разделитель -->
+                        <div class="flex-grow-1">
+                            <h5>Price</h5>
+                            <h4>{{ car.formatted_price }} $</h4>
+                        </div>
+                        <a href="/#contact" class="order-button">
+                            <div class="button text-center">ORDER</div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 car-col">
+                        <div id="carouselExampleControls{{ car.id }}" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                {% for photo in car.photos.all %}
+                                    {% if forloop.first %}
+                                        <div class="carousel-item active">
+                                            <img src="{{ photo.image.url }}" class="d-block w-100" alt="photo">
+                                        </div>
+                                    {% else %}
+                                        <div class="carousel-item">
+                                            <img src="{{ photo.image.url }}" class="d-block w-100" alt="photo">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{ car.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{ car.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>                                     
+                    </div>
+                </div>
+            </div>
+            {% if not forloop.last %}
+            <hr class="car-divider"> <!-- Горизонтальная линия между машинами, кроме последней -->
+            {% endif %}
+            {% endfor %}
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container footer-info">
+          <footer class="py-3 my-4">
+            <p class="text-center text-dark-emphasis">© 2024 Trans Service Group, Inc</p>
+          </footer>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static "tsg_website/js/tsg_ani.js" %}"></script>
+    <script>
+        // Убедимся, что DOM полностью загружен
+        document.addEventListener('DOMContentLoaded', function() {
+          // Перебираем все элементы карусели
+          document.querySelectorAll('.carousel-item').forEach(function(item) {
+            var img = item.querySelector('img');
+            // Устанавливаем фоновое изображение, как только изображение будет загружено
+            img.onload = function() {
+              item.style.backgroundImage = 'url(' + img.src + ')';
+            };
+            // Если изображение уже кэшировано и имеет ширину, установите фон немедленно
+            if (img.complete && img.naturalWidth) {
+              item.style.backgroundImage = 'url(' + img.src + ')';
+            }
+          });
+        });
+    </script>      
 </body>
 </html>
