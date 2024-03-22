@@ -38,9 +38,9 @@ main {
 @media (max-width: 991px) {
 .sidebar {
     background: rgba(0, 0, 0, 0.53);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 21%, rgb(136, 1, 1) 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color:rgba(0, 0, 0, 0.53);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 }
 
@@ -52,8 +52,12 @@ main {
 
 .offcanvas-title {
     text-align: center;
-    flex-grow: 1;
+    flex-grow: 1; 
     margin: 0 auto;
+}
+
+.offcanvas-test {
+    width: 100% !important; /* Set width to  100% */
 }
 
 .text {
@@ -206,4 +210,24 @@ a.button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 70px;
+    padding: 0;
+    text-shadow: 4px 4px 8px #000000;
+}
+
+.go-to-all-cars {
+    text-align: center;
+    font-size: 50px;
+    padding: 0;
+    text-shadow: 4px 4px 8px #000000;
+    color: brown;
+    text-decoration: none;
+    }
+
+.go-to-all-cars:hover {
+    color: rgb(98, 27, 27);
 }
