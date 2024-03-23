@@ -12,20 +12,33 @@ html, body {
 }
 
 .fixed-background {
+
     position: fixed;
     top:  0;
     left:  0;
     width:  100%;
-    height:  100%;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 11%, rgb(75, 0, 0) 100%);
+    height: 100vh;
+    background: url(../images/car_repair_bckgrnd.jpg) rgba(0, 0, 0, 0.3);
     background-blend-mode: multiply;
-    background-position: right;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll !important;
     z-index: -1;
-}
+    object-fit: cover;
+  }
+  @supports (-webkit-touch-callout: none) {
+    .fixed-background {
+      background-attachment: scroll !important;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .fixed-background {
+      background-attachment: scroll !important;
+      background-position: center; /* Adjust if necessary */
+    }
+  }
 
 header {
     height: 100px;
@@ -101,7 +114,6 @@ main {
 }
 
 .car {
-    background: rgba(0, 0, 0, 0.042);
     color: aliceblue;
     font-weight: bold;
     margin-top: 20px;
@@ -123,6 +135,10 @@ a.button {
 .order-button {
     text-decoration: none;
     margin-bottom: 30px;
+}
+
+.btn-danger {
+    --bs-btn-bg: #ca0e0e !important;
 }
 
 .button {
@@ -148,7 +164,9 @@ a.button {
 }
 
 .car-container {
-    background: rgba(0, 0, 0, 0.472);
+    background: rgba(0, 0, 0, 0.812);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .carousel-item img {
@@ -179,6 +197,40 @@ a.button {
     margin-top: 30px;
   }
 
+  .filter-option {
+    display: inline-block;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.788);
+    color: rgb(122, 126, 131);
+    border: 2px solid;
+    font-size: 20px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Общее свойство для всех остальных браузеров */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.filter-checkbox {
+    display: block; /* Растягивает label на весь контейнер */
+    cursor: pointer; /* Изменяет курсор, чтобы показать, что элемент кликабелен */
+    width: 100%; /* Гарантирует, что label занимает всю ширину .filter-option */
+    padding: 10px 20px; /* Добавляет немного пространства внутри, для визуального комфорта */
+    border-radius: 10px;
+  }
+
+.filter-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.filter-option-active {
+    background-color: rgb(183, 3, 3);
+    color:antiquewhite;
+    border: 2px solid antiquewhite;
+}
+
   .divider {
     height: 1px; /* Высота линии */
     background-color: #ccc; /* Цвет линии */
@@ -186,7 +238,7 @@ a.button {
 }
 
 .car-divider {
-    margin: 100px 0; /* Отступы сверху и снизу */
+    margin: 70px 0; /* Отступы сверху и снизу */
     border:0;
 }
 
@@ -231,3 +283,102 @@ a.button {
 .go-to-all-cars:hover {
     color: rgb(98, 27, 27);
 }
+
+.filter-divider {
+    border:0;
+}
+
+*:focus {
+    outline: none !important; /* Пример: заменить на оранжевый цвет */
+}
+
+.accordion-button:focus {
+    outline: none !important; /* Убираем стандартное выделение */
+    box-shadow: none !important; /* Убираем тень, которая может появляться */
+    border-color: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color:rgb(183, 3, 3) !important;
+    color:aliceblue !important;
+}
+
+.accordion {
+    --bs-accordion-bg: none !important;
+    --bs-accordion-border-color: gray !important;
+}
+
+.accordion-button {
+    color: aliceblue !important;
+    font-size: large !important;
+}
+
+output {
+    color: aliceblue !important;
+    font-size: large;
+}
+
+/* Стили для input type="range" */
+input[type="range"] {
+    -webkit-appearance: none; /* Переопределение стандартного вида */
+    width: 40%; /* Полная ширина контейнера */
+    background: transparent; /* Прозрачный фон */
+  }
+  
+  /* Стилизация трека для Chrome, Safari, и Opera */
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px; /* Высота трека */
+    background: #9c8d8d; /* Цвет трека */
+    border: none; /* Убрать стандартную границу */
+    border-radius: 3px; /* Слегка закругленные углы */
+  }
+  
+  /* Стилизация трека для Mozilla Firefox */
+  input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: #000;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  /* Стилизация ползунка для Chrome, Safari, и Opera */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Убираем стандартный вид */
+    margin-top: -8px; /* Выравниваем ползунок с треком */
+    height: 20px; /* Высота ползунка */
+    width: 20px; /* Ширина ползунка */
+    background: #000000; /* Цвет ползунка */
+    cursor: pointer; /* Курсор в виде руки */
+    border-radius: 50%; /* Круглый ползунок */
+    border: 1px solid #7e6969; /* Граница ползунка */
+  }
+  
+  /* Стилизация ползунка для Mozilla Firefox */
+  input[type="range"]::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+  }
+  
+  /* Стилизация вывода */
+  output {
+    display: block; /* Блочный элемент */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 16px; /* Размер шрифта */
+    margin-top: 10px; /* Отступ сверху */
+  }
+
+  .output-price {
+    font-size: large;
+  }
+
+  .matching {
+    color: rgb(101, 101, 101);
+    text-align: center;
+    font-size: 40px;
+    padding: 0;
+    text-shadow: 4px 4px 8px #000000;
+  }

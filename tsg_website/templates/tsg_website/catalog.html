@@ -84,6 +84,181 @@
   </header>
   <main>
     <div class="container car-container">
+      <aside class="filter-sidebar col-12">
+        <h4 class="matching">{{ cars.count }} MATCHING VEHICLES FOUND</h4><hr class="filter-divider">
+        <form method="get" action="{% url 'catalog' %}" class="filter-form">
+          <div class="accordion" id="filterAccordion">
+            <!-- Price Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPrice">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                  Price
+                </button>
+              </h2>
+              <div id="collapsePrice" class="accordion-collapse collapse" aria-labelledby="headingPrice" data-bs-parent="#filterAccordion">
+                <div class="accordion-body">
+                  <input type="range" name="priceMin" min="{{ min_price }}" max="{{ max_price }}" value="{{ request.GET.priceMin|default:min_price }}" id="priceMin" oninput="updatePriceRange()">
+                  <input type="range" name="priceMax" min="{{ min_price }}" max="{{ max_price }}" value="{{ request.GET.priceMax|default:max_price }}" id="priceMax" oninput="updatePriceRange()">
+                  <output id="priceRange" class="output-price">${{ request.GET.priceMin|default:min_price|safe }} - ${{ request.GET.priceMax|default:max_price|safe }}</output>
+                  <hr class="filter-divider">
+                </div>
+              </div>
+            </div>
+
+            <!-- Year Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingYear">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseYear" aria-expanded="false" aria-controls="collapseYear">
+                  Year
+                </button>
+              </h2>
+              <div id="collapseYear" class="accordion-collapse collapse" aria-labelledby="headingYear" data-bs-parent="#filterAccordion">
+                {% for year in years %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="year_{{ year }}">
+                    <input type="checkbox" id="year_{{ year }}" name="year" value="{{ year }}" style="display:none" {% if request.GET.model == year %}checked{% endif %}>
+                    {{ year }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Make Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingMake">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMake" aria-expanded="false" aria-controls="collapseMake">
+                  Make
+                </button>
+              </h2>
+              <div id="collapseMake" class="accordion-collapse collapse" aria-labelledby="headingMake" data-bs-parent="#filterAccordion">
+                {% for make in makes %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="make_{{ make }}">
+                    <input type="checkbox" id="make_{{ make }}" name="make" value="{{ make }}" style="display:none" {% if request.GET.model == make %}checked{% endif %}>
+                    {{ make }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Model Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingModel">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModel" aria-expanded="false" aria-controls="collapseModel">
+                  Model
+                </button>
+              </h2>
+              <div id="collapseModel" class="accordion-collapse collapse" aria-labelledby="headingModel" data-bs-parent="#filterAccordion">
+                {% for model in models %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="model_{{ model }}">
+                    <input type="checkbox" id="model_{{ model }}" name="model" value="{{ model }}" style="display:none" {% if request.GET.model == model %}checked{% endif %}>
+                    {{ model }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Mileage Range Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingMileage">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMileage" aria-expanded="false" aria-controls="collapseMileage">
+                  Mileage
+                </button>
+              </h2>
+              <div id="collapseMileage" class="accordion-collapse collapse" aria-labelledby="headingMileage" data-bs-parent="#filterAccordion">
+                <div class="accordion-body">
+                  <input type="range" name="mileageMin" min="{{ min_mileage }}" max="{{ max_mileage }}" value="{{ request.GET.mileageMin|default:min_mileage }}" id="mileageMin" oninput="updateMileageRange()">
+                  <input type="range" name="mileageMax" min="{{ min_mileage }}" max="{{ max_mileage }}" value="{{ request.GET.mileageMax|default:max_mileage }}" id="mileageMax" oninput="updateMileageRange()">
+                  <output id="mileageRange" style="font-size: large;">{{ request.GET.mileageMin|default:min_mileage }} miles - {{ request.GET.mileageMax|default:max_mileage }} miles</output>
+                  <hr class="filter-divider">
+                </div>
+              </div>
+            </div>
+
+            <!-- Exterior Color Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingExteriorColor">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExteriorColor" aria-expanded="false" aria-controls="collapseExteriorColor">
+                  Exterior Color
+                </button>
+              </h2>
+              <div id="collapseExteriorColor" class="accordion-collapse collapse" aria-labelledby="headingExteriorColor" data-bs-parent="#filterAccordion">
+                {% for color in colors %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="color_{{ color }}">
+                    <input type="checkbox" id="color_{{ color }}" name="color" value="{{ color }}" style="display:none" {% if request.GET.model == color %}checked{% endif %}>
+                    {{ color }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Body Type Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingBodyType">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBodyType" aria-expanded="false" aria-controls="collapseBodyType">
+                  Body Type
+                </button>
+              </h2>
+              <div id="collapseBodyType" class="accordion-collapse collapse" aria-labelledby="headingBodyType" data-bs-parent="#filterAccordion">
+                {% for body_type in body_types %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="body_type_{{ body_type }}">
+                    <input type="checkbox" id="body_type_{{ body_type }}" name="body_type" value="{{ body_type }}" style="display:none" {% if request.GET.model == body_type %}checked{% endif %}>
+                    {{ body_type }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Transmission Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTransmission">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTransmission" aria-expanded="false" aria-controls="collapseTransmission">
+                  Transmission
+                </button>
+              </h2>
+              <div id="collapseTransmission" class="accordion-collapse collapse" aria-labelledby="headingTransmission" data-bs-parent="#filterAccordion">
+                {% for transmission in transmissions %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="transmission_{{ transmission }}">
+                    <input type="checkbox" id="transmission_{{ transmission }}" name="transmission" value="{{ transmission }}" style="display:none" {% if request.GET.model == transmission %}checked{% endif %}>
+                    {{ transmission }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Fuel Type Filter -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFuelType">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFuelType" aria-expanded="false" aria-controls="collapseFuelType">
+                  Fuel Type
+                </button>
+              </h2>
+              <div id="collapseFuelType" class="accordion-collapse collapse" aria-labelledby="headingFuelType" data-bs-parent="#filterAccordion">
+                {% for fuel_type in fuel_types %}
+                <div class="filter-option">
+                  <label class="filter-checkbox" for="fuel_type_{{ fuel_type }}">
+                    <input type="checkbox" id="fuel_type_{{ fuel_type }}" name="fuel_type" value="{{ fuel_type }}" style="display:none" {% if request.GET.model == fuel_type %}checked{% endif %}>
+                    {{ fuel_type }}
+                  </label>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-danger mt-3">Apply Filters</button>
+          <a href="#" class="btn btn-outline-danger mt-3" id="clearFilters">Clear Filters</a><hr class="filter-divider"><hr class="filter-divider"><hr class="filter-divider">
+        </form>
+      </aside>
       {% if cars %}
         {% if query %}
         <a href="/catalog" class="go-to-all-cars">
@@ -92,6 +267,7 @@
         {% endif %}
         {% for car in cars %}
         <div class="car">
+          <div class="divider"></div>
           <div class="row">
             <div class="col-12 col-md-6 d-flex flex-column car-col">
               <div class="flex-grow-1">
@@ -152,6 +328,7 @@
             </div>
           </div>
         </div>
+        <div class="divider"></div>
         {% if not forloop.last %}
         <hr class="car-divider"> <!-- Горизонтальная линия между машинами, кроме последней -->
         {% endif %}
@@ -258,6 +435,78 @@
         }
       });
     });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+        const checked = JSON.parse(localStorage.getItem(checkbox.id));
+        if (checked !== null) {
+            checkbox.checked = checked;
+        }
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const clearFiltersButton = document.getElementById('clearFilters');
+      if (clearFiltersButton) {
+          clearFiltersButton.addEventListener('click', function(event) {
+              event.preventDefault();
+              localStorage.clear(); // Очистка сохраненных чекбоксов
+              window.location.href = "{% url 'catalog' %}"; // Переход на страницу сброса фильтров
+          });
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var checkboxes = document.querySelectorAll('input');
+      
+      checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+          if(this.checked) {
+            // Если чекбокс выбран, добавить класс к родительскому элементу
+            this.closest('.filter-option').classList.add('filter-option-active');
+          } else {
+            // Если чекбокс не выбран, удалить класс у родительского элемента
+            this.closest('.filter-option').classList.remove('filter-option-active');
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    function updatePriceRange() {
+      var priceMin = document.getElementById('priceMin').value;
+      var priceMax = document.getElementById('priceMax').value;
+      var priceRange = document.getElementById('priceRange');
+      
+      priceRange.textContent = `$${priceMin} - $${priceMax}`;
+    }
+  
+    // Вызываем функцию обновления при первоначальной загрузке страницы
+    updatePriceRange();
+  </script>
+
+  <script>
+    function updateMileageRange() {
+      var mileageMin = document.getElementById('mileageMin').value;
+      var mileageMax = document.getElementById('mileageMax').value;
+      var mileageRange = document.getElementById('mileageRange');
+      
+      mileageRange.textContent = `${mileageMin} miles - ${mileageMax} miles`;
+    }
+  
+    // Вызываем функцию обновления при первоначальной загрузке страницы
+    updateMileageRange();
   </script>
 </body>
 
