@@ -175,6 +175,12 @@ a.button {
     height: 500px;
   }
 
+  .nav-logo img{
+    width: 50px;
+    height: 50px;
+    color:#ca0e0e;
+  }
+
   .carousel-item::before {
     content: "";
     display: block;

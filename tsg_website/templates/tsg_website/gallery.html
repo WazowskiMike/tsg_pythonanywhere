@@ -23,6 +23,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="navbar">
         <div class="container d-flex align-items-center">
+            <div class="nav-logo">
+                <img src="../static/tsg_website/images/nav_logo.png" alt="nav_logo">
+            </div>
             <ul class="text testing">
             <li class="spaced">T</li>
             <li class="ghost">r</li>
@@ -88,7 +91,7 @@
             </div>
             <div class="row">
                 {% for photo in photos %}
-                <div class="col-12 col-md-6 gallery-photo">
+                <div class="col-12 col-md-3 gallery-photo">
                     <img src="{{ photo.image.url }}" class="d-block w-100" alt="photo">
                 </div>
                 {% endfor %}
