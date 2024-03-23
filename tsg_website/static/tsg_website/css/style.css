@@ -225,7 +225,7 @@ p {
 }
 
 .about-container {
-  margin-top: 450px;
+  margin-top: 300px;
 }
 
 .about-us-slogan {
@@ -257,4 +257,69 @@ p {
 
 .company-email :hover{
   text-decoration: underline;
+}
+
+.carousel-item img{
+  object-fit: fill;
+  width: 100%;
+  height: 350px;
+}
+
+.carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: inherit;
+  background-size: cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.carousel-item.active::before {
+  content: none;
+}
+
+.photo-overlay-container {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  font-size: large;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  color: white; /* Белый текст */
+  text-align: center;
+  padding: 10px 0; /* Отступы сверху и снизу */
+  opacity: 0; /* Скрыть по умолчанию */
+  transition: opacity 0.5s ease; /* Плавное появление */
+}
+
+.overlay-text {
+  text-decoration: none;
+  color: white;
+}
+
+.photo-overlay-container:hover .overlay {
+  opacity: 1; /* Показать при наведении */
+}
+
+.carousel-control-prev {
+  z-index: 2;
+}
+
+.carousel-control-next {
+  z-index: 2;
 }

@@ -50,3 +50,17 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo of {self.car.name}"
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+class GalleryPhoto(models.Model):
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='gallery_photos')
+    image = models.ImageField(upload_to='media/')
+    caption = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return self.caption

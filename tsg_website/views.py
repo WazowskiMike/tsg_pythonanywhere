@@ -1,10 +1,15 @@
 from django.shortcuts import render
-from .models import Car
+from .models import Car, Gallery
 from django.db.models import Min, Max
 from django.contrib.humanize.templatetags.humanize import intcomma
 
 def index(request):
-    return render(request, 'tsg_website/index.html')
+    try:
+        gallery = Gallery.objects.get(pk=1)  # Получаем единственный экземпляр Gallery
+        photos = gallery.gallery_photos.all()  # Получаем все связанные фотографии
+    except Gallery.DoesNotExist:
+        photos = []  # Если галерея не найдена, возвращаем пустой список
+    return render(request, 'tsg_website/index.html', {'photos': photos})
 
 def catalog(request):
     cars = Car.objects.all()
@@ -91,3 +96,11 @@ def catalog(request):
         'fuel_types': fuel_types,
     }
     return render(request, 'tsg_website/catalog.html', context=context)
+
+def gallery(request):
+    try:
+        gallery = Gallery.objects.get(pk=1)  # Получаем единственный экземпляр Gallery
+        photos = gallery.gallery_photos.all()  # Получаем все связанные фотографии
+    except Gallery.DoesNotExist:
+        photos = []  # Если галерея не найдена, возвращаем пустой список
+    return render(request, 'tsg_website/gallery.html', {'photos': photos})
