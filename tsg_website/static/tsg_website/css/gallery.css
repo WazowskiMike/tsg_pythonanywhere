@@ -142,3 +142,32 @@ main {
     height: 50px;
     color:#ca0e0e;
   }
+
+.lb-image {
+    width: auto !important;
+    height: auto !important;
+    max-width: 80vw !important;
+    max-height: 60vh !important;
+    object-fit: fill !important;
+    background-color: black; /* Фон для "заполняющих полос" */
+}
+
+.lb-outerContainer {
+    width: 80vw !important; /* Желаемая ширина модального окна */
+    height: 60vh !important; /* Желаемая высота модального окна */
+    max-width: none !important;
+    max-height: none !important;
+    background-color:unset !important;
+    backdrop-filter: blur(10px);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.lb-nav a.lb-next {
+    opacity: 1 !important;
+}
+
+.lb-nav a {
+    opacity: 1 !important;
+}

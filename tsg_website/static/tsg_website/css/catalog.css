@@ -388,3 +388,11 @@ input[type="range"] {
     padding: 0;
     text-shadow: 4px 4px 8px #000000;
   }
+
+.lb-nav a.lb-next {
+    opacity: 1 !important;
+}
+
+.lb-nav a {
+    opacity: 1 !important;
+}
