@@ -180,6 +180,9 @@ main {
         max-height: none !important;
         background-color:unset !important;
         backdrop-filter: blur(10px);
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .lb-image {
