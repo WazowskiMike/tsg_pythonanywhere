@@ -337,3 +337,11 @@ p {
 .carousel-control-next {
   z-index: 2;
 }
+
+.lb-nav a.lb-next {
+  opacity: 1 !important;
+}
+
+.lb-nav a {
+  opacity: 1 !important;
+}
