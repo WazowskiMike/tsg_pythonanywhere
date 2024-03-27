@@ -144,17 +144,17 @@ main {
   }
 
 .lb-image {
-    width: auto !important;
-    height: auto !important;
-    max-width: 80vw !important;
-    max-height: 60vh !important;
-    object-fit: fill !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    object-fit: contain !important;
     background-color: black; /* Фон для "заполняющих полос" */
 }
 
 .lb-outerContainer {
-    width: 80vw !important; /* Желаемая ширина модального окна */
-    height: 60vh !important; /* Желаемая высота модального окна */
+    width: 90vw !important; /* Желаемая ширина модального окна */
+    height: 90vh !important; /* Желаемая высота модального окна */
     max-width: none !important;
     max-height: none !important;
     background-color:unset !important;
@@ -170,6 +170,11 @@ main {
 
 .lb-nav a {
     opacity: 1 !important;
+}
+
+.lb-container {
+    width: 100%;
+    height: 100%;    
 }
 
 @media screen and (max-width: 1025px) and (orientation: landscape) {
