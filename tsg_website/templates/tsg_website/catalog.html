@@ -296,7 +296,7 @@
                 {% endif %}
               </div>
               {% if not car.is_sold %}
-              <a href="/#contact" class="order-button">
+              <a href="/order/{{ car.name }}" class="order-button">
                 <div class="button text-center">ORDER</div>
               </a>
               {% endif %}
@@ -373,7 +373,7 @@
                   {% endif %}
                 </div>
                 {% if not car.is_sold %}
-                <a href="/#contact" class="order-button">
+                <a href="/order/{{ car.name }}" class="order-button">
                   <div class="button text-center">ORDER</div>
                 </a>
                 {% endif %}

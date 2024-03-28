@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Car, Gallery
 from django.db.models import Min, Max
 from django.contrib.humanize.templatetags.humanize import intcomma
+from .forms import OrderForm
+import telebot
 
 def index(request):
     try:
@@ -104,3 +106,36 @@ def gallery(request):
     except Gallery.DoesNotExist:
         photos = []  # Если галерея не найдена, возвращаем пустой список
     return render(request, 'tsg_website/gallery.html', {'photos': photos})
+
+def order_page(request, car_name):
+    # Здесь вы можете добавить логику для создания страницы заказа
+    # Это может включать в себя форму заказа и другие данные, связанные с автомобилем
+    return render(request, 'tsg_website/order_page.html', {'car_name': car_name})
+
+TELEGRAM_BOT_TOKEN = '7161604572:AAHhX7XrIET7TdUJ3FvToul_KJqPJzDInTI'
+# ID чата или пользователя, которому бот будет отправлять сообщения
+TELEGRAM_CHAT_ID = '1108252918'
+
+bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
+
+def submit_order(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save()
+
+            car_name = order.car_name
+            name = order.name
+            phone = order.phone
+            email = order.email
+            # Сообщение, которое будет отправлено через бота
+            message = f'New order received for {car_name}. Name: {name}, Phone: {phone}, Email: {email}'
+            # Отправка сообщения
+            bot.send_message(TELEGRAM_CHAT_ID, message)
+
+            return redirect('/catalog')
+    else:
+        initial_data = {'car_name': request.POST.get('car_name')}
+        form = OrderForm(initial=initial_data)
+
+    return render(request, 'tsg_website/order_page.html', {'form': form})
