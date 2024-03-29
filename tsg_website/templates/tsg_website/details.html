@@ -1,0 +1,202 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tsg_website/css/details.css' %}">
+    <meta charset="UTF-8">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'tsg_website/images/favicon.ico' %}">
+    <title>TSG - Deatail {{car.name}}</title>
+</head>
+<body>
+    <div class="fixed-background"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="navbar">
+        <div class="container d-flex align-items-center">
+            <div class="nav-logo">
+                <img src="{% static 'tsg_website/images/nav_logo.png' %}" alt="nav_logo">
+            </div>
+            <ul class="text testing">
+            <li class="spaced">T</li>
+            <li class="ghost">r</li>
+            <li class="ghost">a</li>
+            <li class="ghost">n</li>
+            <li class="ghost">s</li>
+
+            <li class="spaced">S</li>
+            <li class="ghost">e</li>
+            <li class="ghost">r</li>
+            <li class="ghost">v</li>
+            <li class="ghost">i</li>
+            <li class="ghost">c</li>
+            <li class="ghost">e</li>
+
+            <li class="spaced">G</li>
+            <li class="ghost">r</li>
+            <li class="ghost">o</li>
+            <li class="ghost">u</li>
+            <li class="ghost">p</li>
+            </ul>
+
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="sidebar offcanvas offcanvas-end offcanvas-test" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel" style="background-color: #00000000;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white " id="offcanvasNavbarLabel">Navigation</h5>
+                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+                aria-label="Close" id="close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3">
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#about">About</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/catalog/">Catalog</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#auto-services">Services</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/gallery/">Gallery</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#contact">Contact</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container detail-container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="car-detail">{{car.name}} details</h1>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Description</h3></div>
+                    <div class="detail">{{car.description}}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Make</h3></div>
+                    <div class="detail">{{car.make}}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Model</h3></div>
+                    <div class="detail">{{car.model}}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Mileage</h3></div>
+                    <div class="detail">{{car.mileage}} miles</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Body Color</h3></div>
+                    <div class="detail">{{car.body_color}}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Body type</h3></div>
+                    <div class="detail">{{ car.get_body_type_display }}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Transmission</h3></div>
+                    <div class="detail">{{ car.get_transmission_display }}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <div><h3>Fuel type</h3></div>
+                    <div class="detail">{{car.get_fuel_type_display}}</div>
+                </div>
+            </div>
+            <div class="row detail-row">
+                <div class="col">
+                    <a href="/order/{{ car.name }}" class="order-button">
+                        <div class="button text-center">ORDER</div>
+                    </a>
+                </div>
+            </div>
+            <div id="carouselExampleControls{{ car.id }}" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                {% if car.is_sold %}
+                <div class="sold-badge">
+                  <h1 class="is-sold">SOLD</h1>
+                </div>
+                {% endif %}
+                <div class="carousel-inner">
+                  {% for photo in car.photos.all %}
+                  {% if forloop.first %}
+                  <div class="carousel-item active">
+                      <a href="{{ photo.image.url }}" data-lightbox="catalog {{ car.id }}" data-title="Photo {{ forloop.counter }}">
+                          <img src="{{ photo.image.url }}" class="d-block w-100" alt="photo">
+                      </a>
+                  </div>
+                  {% else %}
+                  <div class="carousel-item">
+                      <a href="{{ photo.image.url }}" data-lightbox="catalog {{ car.id }}" data-title="Photo {{ forloop.counter }}">
+                          <img src="{{ photo.image.url }}" class="d-block w-100" alt="photo">
+                      </a>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{ car.id }}"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{ car.id }}"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-info">
+            <footer class="py-3 my-4">
+            <p class="text-center text-dark-emphasis">© 2024 Trans Service Group, Inc</p>
+            </footer>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static "tsg_website/js/tsg_ani.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+</body>
+</html>

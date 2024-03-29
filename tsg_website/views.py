@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Car, Gallery
 from django.db.models import Min, Max
 from django.contrib.humanize.templatetags.humanize import intcomma
@@ -98,6 +98,10 @@ def catalog(request):
         'fuel_types': fuel_types,
     }
     return render(request, 'tsg_website/catalog.html', context=context)
+
+def details(request, id):
+    car = get_object_or_404(Car, id=id)
+    return render(request, 'tsg_website/details.html', {'car': car})
 
 def gallery(request):
     try:
