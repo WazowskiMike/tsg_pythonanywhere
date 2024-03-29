@@ -39,15 +39,15 @@ def catalog(request):
     body_types = cars.values_list('body_type', flat=True).distinct().order_by('body_type')
     transmissions = cars.values_list('transmission', flat=True).distinct().order_by('transmission')
     fuel_types = cars.values_list('fuel_type', flat=True).distinct().order_by('fuel_type')
-    
+
     if query:
         cars = cars.filter(name__icontains=query)
-    
+
     if min_price_for_car:
         cars = cars.filter(price__gte=min_price_for_car)
     if max_price_for_car:
         cars = cars.filter(price__lte=max_price_for_car)
-    
+
     if min_mileage_for_car:
         cars = cars.filter(mileage__gte=min_mileage_for_car)
     if max_mileage_for_car:
