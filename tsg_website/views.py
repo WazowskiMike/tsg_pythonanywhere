@@ -143,3 +143,6 @@ def submit_order(request):
         form = OrderForm(initial=initial_data)
 
     return render(request, 'tsg_website/order_page.html', {'form': form})
+
+def services(request):
+    return render(request, 'tsg_website/services.html')

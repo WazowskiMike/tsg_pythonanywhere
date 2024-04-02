@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'tsg_website/css/services.css' %}">
+        <meta charset="UTF-8">
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#000000">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#000000">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="../static/tsg_website/images/favicon.ico">
+        <title>TSG - Gallery</title>
+    </head>
+<body>
+    <div class="fixed-background"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="navbar">
+        <div class="container d-flex align-items-center">
+            <div class="nav-logo">
+                <img src="../static/tsg_website/images/nav_logo.png" alt="nav_logo">
+            </div>
+            <ul class="text testing">
+            <li class="spaced">T</li>
+            <li class="ghost">r</li>
+            <li class="ghost">a</li>
+            <li class="ghost">n</li>
+            <li class="ghost">s</li>
+
+            <li class="spaced">S</li>
+            <li class="ghost">e</li>
+            <li class="ghost">r</li>
+            <li class="ghost">v</li>
+            <li class="ghost">i</li>
+            <li class="ghost">c</li>
+            <li class="ghost">e</li>
+
+            <li class="spaced">G</li>
+            <li class="ghost">r</li>
+            <li class="ghost">o</li>
+            <li class="ghost">u</li>
+            <li class="ghost">p</li>
+            </ul>
+
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="sidebar offcanvas offcanvas-end offcanvas-test" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel" style="background-color: #00000000;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white " id="offcanvasNavbarLabel">Navigation</h5>
+                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+                aria-label="Close" id="close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3">
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#about">About</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/catalog/">Catalog</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/gallery/">Gallery</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link active nav-link" aria-current="page" href="/#contact">Contact</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container service-container">
+            <div class="row">
+                <div class="col align-items-center d-flex justify-content-center">
+                    <h1 class="offer">What we offer</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item ">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Preventative Maintenance →
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Our team look for keep your vehicle on shape. That’s why we recommend having done the right service on time to prevent any problems.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Brakes replacement
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Grinding brakes? Brakes normally last between 25-50k miles, depending on how you drive, where you drive and other factors that could cause the brake pads to reach their service limit.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Transmission Service
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    A car transmission is one of the most important components of your vehicle. Every car according to the manufacturer needs a transmission fluid exchange.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Struts and shocks
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Well-tuned suspensions will absorb bumps and other defects on the road. Driving with suspension issues is highly dangerous and could cause problems even with your tires or rougher driving.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Transmission fluid exchange
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    A car transmission is one of the most important components of your vehicle. Every car according to the manufacturer needs a transmission fluid exchange. Each manufacturer determines how often the fluid needs to be changed
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Drive or serpentine belt
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Usually drive belts last more than 150,000k miles, but once it fails your car is not going anywhere. Symptoms of a faulty belt: squealing noise, Visible belt wear, visibly loose belt. Before this happens let our technicians check your vehicle on every visit!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Fuel filter
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    The fuel filter acts as a permeable barrier that cleans the fuel of sediment or contaminants before it goes to the fuel injection system. A clogged fuel filter could cause vehicle loss of power or engine issues.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    Tune-up
+                                </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Is one of the most important maintenances to prevent mechanical issues. What’s included in a car tune up? Change spark plugs Change fuel filter Change ignition coils Replace air filter. Clean fuel system
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingNine">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                    Radiator flush
+                                </button>
+                            </h2>
+                            <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Depending on manufacturer recommendations, any fluid of the vehicle needs to be changed between 75k miles or 150k miles to ensure that engine coolant that’s goes through the system protects engine performance.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTen">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                    Diesel
+                                </button>
+                            </h2>
+                            <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Diesel engines are found in heavy-duty trucks. Part of having a diesel truck is: change oil every 3,000k miles or 5,000k miles. Change fuel filters every 10,000k miles to prevent fuel injector pump damaging. Change differential fluid. Change the air filter every 15,000k miles depending on environmental factors.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingEleven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                    Differential fluid
+                                </button>
+                            </h2>
+                            <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    The differential allows drive wheels to turn at different speeds, changing the fluid depending on manufacturer service intervals must be change between 15k and 60k miles.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwelve">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                    Fuel injector cleaner
+                                </button>
+                            </h2>
+                            <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Cleaning fuel injectors should be performed either every 15,000 miles or annually to prevent the buildup of harmful deposits. A clogged fuel system could lead to a lack of engine power, misfires, or even engine failure.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThrirteen">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThrirteen" aria-expanded="false" aria-controls="collapseThrirteen">
+                                    And also…
+                                </button>
+                            </h2>
+                            <div id="collapseThrirteen" class="accordion-collapse collapse" aria-labelledby="headingThrirteen" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    From a cracked bumper to rust damage,TSG offers a range of vehicle damage repair services that you can trust. <hr style="border:0;"> If you have minor dings or dents on your car, paintless dent repair (PDR) may be a great affordable option to consider for repairs. This method uses special tools that pull the dents out of the surface of the vehicle without damaging the overall paint.<hr style="border:0;"> Driving at night or in poor weather can be dangerous with dim or cracked headlights. Learn more about how your local TSG can restore your headlights to keep you safe and on the road. <hr style="border:0;">No one likes surprises during their lease-turn in. Stop by of TSG shops and let us help you maximize the value of your leased vehicle with easy and affordable repairs.<hr style="border:0;"> We paint anything, even oversized equipment and trucks. Whether it's for work or pleasure, we can paint your tractors, semis or trailers to bring them back to life and protect them from the elements.<hr style="border:0;"> Contact your local store to see if we can give your truck a fresh coat of paint.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container footer-info">
+            <footer class="py-3 my-4">
+            <p class="text-center text-dark-emphasis">© 2024 Trans Service Group, Inc</p>
+            </footer>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static "tsg_website/js/tsg_ani.js" %}"></script>
+    <script>
+        var accordion = new bootstrap.Collapse(document.getElementById('accordionExample'), {
+            toggle: false
+        });
+    </script>
+</body>
+</html>
