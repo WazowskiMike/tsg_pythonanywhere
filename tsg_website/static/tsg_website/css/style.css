@@ -267,6 +267,7 @@ p {
 }
 .footer-info{
   margin-top: 50px;
+  background-color: #00000085;
 }
 
 .company-email :hover{
@@ -344,4 +345,29 @@ p {
 
 .lb-nav a {
   opacity: 1 !important;
+}
+
+.nes-agency {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 600% 100%;
+  -webkit-background-clip: text;
+  background-position: 100% 0;
+  background-clip: text;
+  color: transparent; /* Делаем текст прозрачным */
+  transition: background-position 1s ease-in-out;
+}
+
+.nes-agency a {
+  background-position: 100% 0;
+  background-size: 600% 100%;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration:dotted;
+}
+
+/* Эффект при наведении */
+.nes-agency:hover, .nes-agency:hover a {
+  background-position: 0 0;
 }
